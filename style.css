@@ -1,49 +1,117 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-body{
-
-    background:#2367b6;
-    color:white;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    height:100vh;
+body {
+    background: #2367b6;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
-.container{
-
-    text-align:center;
+.container {
+    text-align: center;
 }
 
-h1{
-
-    margin-bottom:20px;
+h1 {
+    margin-bottom: 20px;
 }
 
-p{
-
-    margin-bottom:30px;
+p {
+    margin-bottom: 30px;
 }
 
-button{
-
-    padding:15px 30px;
-    border:none;
-    border-radius:8px;
-
-    cursor:pointer;
-
-    font-size:18px;
+button {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
 }
 
-button:hover{
+button:hover {
+    opacity: .9;
+}
 
-    opacity:.9;
+/* Oculta o cupom da interface normal do app */
+.cupom-print {
+    display: none;
+}
+
+/* ==========================================
+   CONFIGURAÇÃO DE IMPRESSÃO 58mm
+   ========================================== */
+@media print {
+    /* Força tamanho da página para 58mm e zera margens do navegador */
+    @page {
+        size: 58mm auto;
+        margin: 0;
+    }
+
+    /* Esconde a interface comum do app na hora da impressão */
+    body * {
+        visibility: hidden;
+    }
+
+    /* Oculta cabeçalhos/rodapés padrão do navegador (data, URL, etc) */
+    html, body {
+        background: #fff !important;
+        color: #000 !important;
+        height: auto !important;
+    }
+
+    /* Exibe apenas o cupom térmico */
+    .cupom-print, .cupom-print * {
+        visibility: visible;
+    }
+
+    .cupom-print {
+        display: block !important;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 48mm; /* Área útil padrão de bobinas de 58mm */
+        padding: 2mm;
+        font-family: 'Courier New', Courier, monospace; /* Fonte mono-espaçada é crucial para térmica */
+        font-size: 11px;
+        line-height: 1.2;
+        color: #000;
+    }
+
+    .cupom-print .header, 
+    .cupom-print .footer {
+        text-align: center;
+    }
+
+    .cupom-print h2 {
+        font-size: 14px;
+        margin-bottom: 3px;
+    }
+
+    .cupom-print .divisor {
+        text-align: center;
+        margin: 4px 0;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    .cupom-print table.itens {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+    }
+
+    .cupom-print table.itens th {
+        border-bottom: 1px dashed #000;
+    }
+
+    .cupom-print .total {
+        font-size: 13px;
+        text-align: right;
+    }
 }

@@ -1,22 +1,15 @@
 const botao = document.getElementById("btn");
 
-botao.addEventListener("click", ()=>{
-
-    alert("PWA funcionando perfeitamente!");
-
+botao.addEventListener("click", () => {
+    // Abre a janela nativa de impressão
+    window.print();
 });
 
 if ("serviceWorker" in navigator) {
-
-    window.addEventListener("load", ()=>{
-
+    window.addEventListener("load", () => {
         navigator.serviceWorker.register("service-worker.js")
-        .then(()=>{
-
+        .then(() => {
             console.log("Service Worker registrado.");
-
         });
-
     });
-
 }
