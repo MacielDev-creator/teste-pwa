@@ -1,0 +1,49 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+
+    background:#2367b6;
+    color:white;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    height:100vh;
+}
+
+.container{
+
+    text-align:center;
+}
+
+h1{
+
+    margin-bottom:20px;
+}
+
+p{
+
+    margin-bottom:30px;
+}
+
+button{
+
+    padding:15px 30px;
+    border:none;
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-size:18px;
+}
+
+button:hover{
+
+    opacity:.9;
+}
